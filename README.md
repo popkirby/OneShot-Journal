@@ -38,3 +38,9 @@ Extracting the images
 ---------------------
 
 First, aquire a copy of the Windows-version journal executable. Next, download [ResourcesExtract](http://www.nirsoft.net/utils/resources_extract.html) and run it, either via Wine or from a Windows install. Set the filename to the journal executable and the destination to the images directory in your local copy of this repo. Set the program to extract only bitmaps, then press Start. Once extraction completes run the included Python script `renameandconvert.py` (requires ImageMagick), which will create the required PNGs.
+
+Windows-version journal executable is compressed by [upx](https://upx.github.io/), so you need to decompress before extracting:
+
+  brew install upx
+  upx -d _______.exe
+

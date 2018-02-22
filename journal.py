@@ -26,6 +26,8 @@ class WatchPipe(QThread):
             message = os.read(pipe.fileno(), 256)
             if len(message) > 0:
                 self.change_image.emit(message.decode())
+            else:
+                QCoreApplication.quit()
 
             time.sleep(0.05)
             
@@ -34,17 +36,17 @@ class Journal(QWidget):
         super().__init__(*args, **kwargs)
                 
         self.label = QLabel(self)
-        self.change_image('default')
         
         self.setWindowFlags(self.windowFlags())
         self.setAttribute(Qt.WA_TranslucentBackground)
-        self.setWindowTitle('OneShot Journal')
+        self.change_image('default')
         self.show()
         self.setMinimumSize(800, 600)
         self.setMaximumSize(800, 600)
         self.setGeometry(0, 0, 800, 600)
     
     def change_image(self, name):
+        name = name.replace('_en', '')
         self.pixmap = QPixmap(os.path.join(base_path, 'images', '{}.png'.format(name)))
         self.label.setPixmap(self.pixmap)
 

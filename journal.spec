@@ -32,7 +32,7 @@ coll = COLLECT(exe,
                name='_______')
 app = BUNDLE(coll,
              name='_______.app',
-             icon=None,
+             icon='assets/icon_journal.icns',
              bundle_identifier="queengooborg.oneshot-game.osx-journal",
              info_plist={
               "CFBundlePackageType": "APPL",

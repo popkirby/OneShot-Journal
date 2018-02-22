@@ -41,6 +41,6 @@ First, aquire a copy of the Windows-version journal executable. Next, download [
 
 Windows-version journal executable is compressed by [upx](https://upx.github.io/), so you need to decompress before extracting:
 
-  brew install upx
-  upx -d _______.exe
+	brew install upx
+	upx -d _______.exe
 

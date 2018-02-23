@@ -46,7 +46,7 @@ class Journal(QWidget):
         self.setGeometry(0, 0, 800, 600)
     
     def change_image(self, name):
-        name = name.replace('_en', '')
+        name = name.replace('_en', '').upper()
         self.pixmap = QPixmap(os.path.join(base_path, 'images', '{}.png'.format(name)))
         self.label.setPixmap(self.pixmap)
 
@@ -60,7 +60,7 @@ class Niko(QWidget):
 
         self.label = QLabel(self)
 
-        self.frames = [QPixmap(os.path.join(base_path, 'images', 'niko{}.png'.format(n))) for n in range(1,4)]
+        self.frames = [QPixmap(os.path.join(base_path, 'images', 'NIKO{}.png'.format(n))) for n in range(1,4)]
         self.drawNikoFrame(0)
 
         self.setAttribute(Qt.WA_TranslucentBackground)
